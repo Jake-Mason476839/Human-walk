@@ -5,6 +5,9 @@ using UnityEngine;
 public class Human : MonoBehaviour
 {
     private Animator anim;
+    private GameObject newInstance;
+    public GameObject ball;
+    public GameObject spawn;
 
     void Start()
     {
@@ -26,5 +29,12 @@ public class Human : MonoBehaviour
             anim.SetBool("Walk", true);
         }
 
+    }
+
+    void BallEvent()
+    {
+        float instX = spawn.transform.position.x;
+        float instY = spawn.transform.position.y;
+        newInstance = Instantiate(ball, new Vector3(instX, instY, 0), Quaternion.identity);
     }
 }
